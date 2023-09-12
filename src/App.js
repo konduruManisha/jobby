@@ -7,7 +7,7 @@ import AboutJobItem from './components/AboutJobItem'
 import AllJobs from './components/AllJobs'
 import './App.css'
 
-// These are the lists used in the application. You can move them to any component needed.
+/* These are the lists used in the application. You can move them to any component needed.
 const employmentTypesList = [
   {
     label: 'Full Time',
@@ -45,11 +45,11 @@ const salaryRangesList = [
     label: '40 LPA and above',
   },
 ]
-
+*/
 // Replace your code here
 const App = () => (
   <Switch>
-    <Route exact path="login" component={LoginForm} />
+    <Route exact path="/login" component={LoginForm} />
     <ProtectedRoute exact path="/" component={Home} />
     <ProtectedRoute exact path="/jobs" component={AllJobs} />
     <ProtectedRoute exact path="/jobs/:id" component={AboutJobItem} />
