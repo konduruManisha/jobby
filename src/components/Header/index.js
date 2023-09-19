@@ -1,3 +1,4 @@
+import {Link, withRouter} from 'react-router-dom'
 import {ImHome} from 'react-icons/im'
 import {FiLogOut} from 'react-icons/fi'
 import Cookies from 'js-cookie'
@@ -19,7 +20,10 @@ const Header = props => {
         </li>
         <li className="home-jobs-container">
           <Link className="link" to="/">
-            <InHome className="home-icon" />
+            <ImHome className="home-icon" />
+            <h1 className="nav-text">Home</h1>
+          </Link>
+          <Link className="link" to="/jobs">
             <h1 className="nav-text">Jobs</h1>
           </Link>
         </li>

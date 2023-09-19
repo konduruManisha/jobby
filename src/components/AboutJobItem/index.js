@@ -56,7 +56,7 @@ class AboutJobItem extends Component {
           packagePerAnnum: eachItem.package_per_annum,
           rating: eachItem.rating,
           skills: eachItem.skills.map(eachSkill => ({
-            imageUrl: eachSkills.image_url,
+            imageUrl: eachSkill.image_url,
             name: eachSkill.name,
           })),
           title: eachItem.title,
@@ -64,7 +64,7 @@ class AboutJobItem extends Component {
       )
       const updatedSimilarJobDetails = fetchedJobData.similar_jobs.map(
         echItem => ({
-          companyLogoUrl: echItem.company_logo_url,
+          companyLogoUrl: eachItem.company_logo_url,
           id: eachItem.id,
           jobDescription: eachItem.job_description,
           employmentType: eachItem.employment_type,
@@ -146,7 +146,7 @@ class AboutJobItem extends Component {
             </div>
             <h1>Skills</h1>
             <ul className="ul-job-details-container">
-              {sills.map(eachItem => (
+              {skills.map(eachItem => (
                 <li className="li-job-details-container" key={eachItem.name}>
                   <img
                     className="skill-img"
@@ -165,7 +165,7 @@ class AboutJobItem extends Component {
               <img src={lifeAtCompany.imageUrl} alt="life at company" />
             </div>
           </div>
-          <h1 className="similar-jobs-headings">Similar Jobs</h1>
+          <h1 className="similar-jobs-heading">Similar Jobs</h1>
           <ul className="similar-jobs-ul-container">
             {similarJobsData.map(eachItem => (
               <SimilarJobs
