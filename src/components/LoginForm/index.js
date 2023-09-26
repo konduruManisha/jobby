@@ -2,14 +2,15 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
 import './index.css'
-const websiteLogoForm = 'https://assets.ccbp.in/frontend/react-js/logo-img.png'
+const websiteLogoInForm =
+  'https://assets.ccbp.in/frontend/react-js/logo-img.png'
 class LoginForm extends Component {
   state = {username: '', password: '', showSubmitError: false, errorMsg: ''}
   onGetUsername = event => this.setState({username: event.target.value})
   onGetPassword = event => this.setState({password: event.target.value})
   onSubmitSuccess = jwtToken => {
     const {history} = this.props
-    Cookies.set('jwtToken', jwtToken, {expires: 30, path: '/'})
+    Cookies.set('jwt_token', jwtToken, {expires: 30, path: '/'})
     history.replace('/')
   }
   onSubmitFailure = errorMsg => {

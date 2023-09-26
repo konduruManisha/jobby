@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 import {MdLocationOn} from 'react-icons/md'
 import {AiFillStar} from 'react-icons/ai'
-import './index.css'
+import './Index.css'
 const JobItem = props => {
   const {jobData} = props
   const {
