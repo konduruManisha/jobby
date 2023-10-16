@@ -63,7 +63,7 @@ class AboutJobItem extends Component {
         }),
       )
       const updatedSimilarJobDetails = fetchedJobData.similar_jobs.map(
-        echItem => ({
+        eachItem => ({
           companyLogoUrl: eachItem.company_logo_url,
           id: eachItem.id,
           jobDescription: eachItem.job_description,
@@ -84,6 +84,7 @@ class AboutJobItem extends Component {
       })
     }
   }
+
   renderJobDetailsSuccessView = () => {
     const {jobDataDetails, similarJobsData} = this.state
     if (jobDataDetails.length >= 1) {
