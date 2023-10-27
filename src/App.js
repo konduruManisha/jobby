@@ -46,6 +46,7 @@ const salaryRangesList = [
   },
 ]
 */
+
 // Replace your code here
 const App = () => (
   <Switch>
