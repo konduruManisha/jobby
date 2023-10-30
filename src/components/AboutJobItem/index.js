@@ -62,6 +62,7 @@ class AboutJobItem extends Component {
           title: eachItem.title,
         }),
       )
+
       const updatedSimilarJobDetails = fetchedJobData.similar_jobs.map(
         eachItem => ({
           companyLogoUrl: eachItem.company_logo_url,
@@ -204,7 +205,7 @@ class AboutJobItem extends Component {
     </div>
   )
   renderJobLoadingView = () => (
-    <div className="job-details-loader" data-test-id="loader">
+    <div className="job-details-loader" data-testid="loader">
       <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
     </div>
   )

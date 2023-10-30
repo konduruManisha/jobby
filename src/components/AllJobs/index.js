@@ -66,14 +66,17 @@ class AllJobs extends Component {
     apiStatus: apiStatusConstants.initial,
     apiJobsStatus: apiJobsStatusConstants.initial,
   }
+
   componentDidMount = () => {
     this.onGetProfileDetails()
     this.onGetJobDetails()
   }
+
   onGetProfileDetails = async () => {
     this.setState({apiStatus: apiStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
     //eslint-disable-next-line no-unused-vars
+
     const {checkboxInputs, radioInput, searchInput} = this.state
     const profileApiUrl = 'https://apis.ccbp.in/profile'
     const optionsProfile = {
@@ -83,6 +86,7 @@ class AllJobs extends Component {
       method: 'GET',
     }
     const responseProfile = await fetch(profileApiUrl, optionsProfile)
+
     if (responseProfile.ok === true) {
       const fetchedDataProfile = [await responseProfile.json()]
       const updatedDataProfile = fetchedDataProfile.map(eachItem => ({
@@ -99,6 +103,7 @@ class AllJobs extends Component {
       this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
+
   onGetJobDetails = async () => {
     this.setState({apiJobsStatus: apiJobsStatusConstants.inProgress})
     const jwtToken = Cookies.get('jwt_token')
@@ -134,6 +139,7 @@ class AllJobs extends Component {
   onGetRadioOption = event => {
     this.setStatus({radioInput: event.target.id}, this.onGetJobDetails)
   }
+
   onGetInputOption = event => {
     const {checkboxInputs} = this.state
     const inputNotInList = checkboxInputs.filter(
@@ -152,6 +158,7 @@ class AllJobs extends Component {
       )
       this.setState(
         //eslint-disable-next-line no-unused-vars
+
         prevState => ({checkboxInputs: filteredData}),
         this.onGetJobDetails,
       )
@@ -245,6 +252,7 @@ class AllJobs extends Component {
       </ul>
     )
   }
+
   onRenderJobsStatus = () => {
     const {apiJobsStatus} = this.state
     switch (apiJobsStatus) {
@@ -258,6 +266,7 @@ class AllJobs extends Component {
         return null
     }
   }
+
   onGetCheckBoxesView = () => (
     <ul className="check-boxes-container">
       {employmentTypesList.map(eachItem => (
@@ -275,6 +284,7 @@ class AllJobs extends Component {
       ))}
     </ul>
   )
+
   onGetRadioButtonsView = () => (
     <ul className="radio-button-container">
       {salaryRangesList.map(eachItem => (
@@ -346,5 +356,4 @@ class AllJobs extends Component {
     )
   }
 }
-
 export default AllJobs
